@@ -13,7 +13,7 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Recipes = () => {
   return (
-    <div id="recipes" className="py-12">
+    <div id="recipes" className="py-12 desktop:px-14">
       <h1 className="font-inter text-center">
         More Than{" "}
         <a href="#" className="text-[#E94339] no-underline font-inter">
@@ -25,7 +25,7 @@ const Recipes = () => {
         Welcome To The Biggest Network of Food Ordering & Delivey
       </p>
 
-      <div className="grid grid-cols-3 px-5 gap-5">
+      <div className="grid grid-cols-3 px-5 gap-5 laptop:grid-cols-5 laptop:px-5">
         <div className="bg-gray-200 p-2 rounded-xl flex flex-col items-center justify-center">
           <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center">
             <img src={pizza} className="w-20 h-20" alt="" />
@@ -36,15 +36,15 @@ const Recipes = () => {
           <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center">
             <img src={salad} className="w-20 h-20" alt="" />
           </div>
-          <p className="font-inter text-xl mt-2">Pizza</p>
+          <p className="font-inter text-xl mt-2">Salad</p>
         </div>
         <div className="bg-gray-200 p-2 rounded-xl flex flex-col items-center justify-center">
           <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center">
             <img src={sushi} className="w-20 h-20" alt="" />
           </div>
-          <p className="font-inter text-xl mt-2">Pizza</p>
+          <p className="font-inter text-xl mt-2">Sushi</p>
         </div>
-        <div className="bg-gray-200 p-2 rounded-xl flex flex-col col-span-3 items-center justify-center">
+        <div className="bg-gray-200 p-2 rounded-xl flex flex-col laptop:col-span-2 col-span-3 items-center justify-center">
           <p className="font-poppins text-md font-[500]">
             Find{" "}
             <a href="" className="text-[#E94339] no-underline">
@@ -59,7 +59,27 @@ const Recipes = () => {
         </div>
       </div>
 
-      <div className="grid mt-5 grid-cols-3 px-5 gap-5">
+      <div className="grid mt-5 grid-cols-3 px-5 gap-5 laptop:grid-cols-5">
+        <div className="laptop:col-span-2">
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 61 51"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M34.7358 48.1929L34.7358 39.1414C34.7358 37.9132 35.8553 36.9185 37.2354 36.9185C42.1603 36.9185 44.8395 32.4267 45.2113 23.5598L37.2354 23.5598C35.8554 23.5598 34.7358 22.5637 34.7358 21.3369L34.7358 2.2243C34.7358 0.996609 35.8553 0.00187113 37.2354 0.00187137L58.5003 0.00187509C59.8801 0.00187533 61 0.997702 61 2.2243L61 21.3371C61 25.5872 60.5175 29.4874 59.5704 32.9319C58.5974 36.463 57.1039 39.5501 55.1322 42.1083C53.1044 44.7373 50.5657 46.8003 47.591 48.237C44.5938 49.6829 41.1097 50.4167 37.2344 50.4167C35.8554 50.4157 34.7358 49.4201 34.7358 48.1929ZM2.49904 36.9177C1.11907 36.9177 -6.62896e-06 37.9132 -6.84339e-06 39.1396L-8.42633e-06 48.193C-8.64088e-06 49.4201 1.11906 50.415 2.49903 50.415C6.37246 50.415 9.85829 49.681 12.8536 48.2353C15.8299 46.7987 18.3682 44.7374 20.3958 42.1066C22.3687 39.5484 23.8621 36.4611 24.8351 32.9283C25.7827 29.4838 26.2642 25.5835 26.2642 21.3352L26.2642 2.22243C26.2642 0.994743 25.144 4.39632e-06 23.7646 4.15513e-06L2.49904 4.36947e-07C1.11907 1.95665e-07 -1.74089e-07 0.995671 -3.88582e-07 2.22243L-3.73037e-06 21.3352C-3.945e-06 22.5627 1.11907 23.5581 2.49904 23.5581L10.363 23.5581C9.99564 32.4257 7.35505 36.9177 2.49904 36.9177Z"
+              fill="#191720"
+            />
+          </svg>
+          <p className="italic text-slate-700 desktop:text-xl">
+            {""}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique
+            aliquid optio eaque doloribus officia iste consequuntur minus hic
+            dolorum quod!{""}
+          </p>
+        </div>
         <div className="bg-gray-200 p-2 rounded-xl flex flex-col items-center justify-center">
           <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center">
             <img src={hotdog} className="w-20 h-20" alt="" />
@@ -80,7 +100,7 @@ const Recipes = () => {
         </div>
       </div>
       <h1 className="font-bold font-poppins text-center">How To Order?</h1>
-      <div className="grid grid-cols-2 px-5 gap-3">
+      <div className="grid grid-cols-2 px-5 gap-3 laptop:grid-cols-4 laptop:gap-10">
         <div className="bg-gray-200 p-2 rounded-2xl">
           <p className="absolute  text-xl mt-0 mb-0 font-semibold text-[#E94339]">
             01
@@ -131,7 +151,7 @@ const Recipes = () => {
       <h1 className="font-bold text-2x text-center mx-auto font-poppins">
         Our Client Feedback
       </h1>
-      <p className="text-center mx-auto font-poppins -mt-3 ">
+      <p className="text-center mx-auto font-poppins -mt-3 laptop:max-w-[400px] ">
         The food at your doorstep. Why starve when u have us. You hunger partner{" "}
         .Straight out of the oven to your doorstep
       </p>
@@ -149,7 +169,7 @@ const Recipes = () => {
             fill="#FF5331"
           />
         </svg>
-        <p className="italic font-semibold">
+        <p className="italic font-semibold laptop:max-w-[400px] laptop:text-center mx-auto">
           {'"'} Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
           perferendis autem animi consequuntur ullam aliquam itaque.{'"'}
         </p>

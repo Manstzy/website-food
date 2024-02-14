@@ -5,7 +5,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [bgNav, setBgNav] = useState(false);
   const handleBgNav = () => {
-    if (scrollY >= 60) {
+    if (scrollY >= 5) {
       setBgNav(true);
     } else {
       setBgNav(false);
@@ -20,17 +20,60 @@ const Navbar = () => {
     <div
       className={
         bgNav
-          ? "w-full bg-[#E94339] top-0 left-0 transition-all duration-200 fixed h-10 flex justify-between py-2 px-5 items-center"
-          : "w-full fixed h-10 flex top-0 left-0 transition-all duration-200 justify-between py-2 px-5 items-center"
+          ? "w-full bg-[#E94339] top-0 desktop:h-12  left-0 transition-all  fixed h-10 flex justify-between py-2 px-5 items-center"
+          : "w-full fixed h-10 flex top-0 desktop:h-12  desktop:items-center left-0 transition-all  justify-between py-2 px-5 items-center"
       }
     >
-      <img src={pizza} className="w-8 h-8" alt="" />
-      <div className="flex items-center">
+      <img
+        src={pizza}
+        className="w-8 h-8 medium:w-10 medium:h-10 desktop:ml-10 "
+        alt=""
+      />
+      <ul className="large:flex items-center list-none gap-6 hidden ">
+        <li className="font-inter ">
+          <a
+            href="#restaurant"
+            className={
+              bgNav
+                ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
+                : "no-underline text-black hover:bg-[#E94339] hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
+            }
+          >
+            Restaurant
+          </a>
+        </li>
+        <li className="font-inter ">
+          <a
+            href="#recipes"
+            className={
+              bgNav
+                ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
+                : "no-underline text-black hover:bg-[#E94339] hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
+            }
+          >
+            Recipes
+          </a>
+        </li>
+        <li className="font-inter ">
+          <a
+            href="#about"
+            className={
+              bgNav
+                ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
+                : "no-underline text-black hover:bg-[#E94339] hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
+            }
+          >
+            About
+          </a>
+        </li>
+      </ul>
+
+      <div className="flex items-center desktop:mr-10 ">
         <button
           className={
             bgNav
-              ? "px-2 py-2 font-inter border-none transition-all duration-200 text-white bg-[#E94339]"
-              : "px-2 py-2 font-inter border-none transition-all duration-200 bg-white"
+              ? "px-2 py-2 font-inter medium:p-3 border-none transition-all cursor-pointer duration-200 text-white bg-[#E94339]"
+              : "px-2 py-2 font-inter medium:p-3 border-none transition-all cursor-pointer duration-200 bg-white"
           }
         >
           Login
@@ -38,13 +81,18 @@ const Navbar = () => {
         <button
           className={
             bgNav
-              ? "px-4 py-2 mr-2 rounded-full border-none font-inter text-black bg-white transition-all duration-200"
-              : "px-4 py-2 mr-2 rounded-full border-none font-inter text-white transition-all duration-200 bg-[#E94339]"
+              ? "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer border-none font-inter text-black bg-white transition-all duration-200"
+              : "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer border-none font-inter text-white transition-all duration-200 bg-[#E94339]"
           }
         >
           Sign Up
         </button>
-        <img onClick={handleNav} src={menu} className="w-8 h-8 mr-10" alt="" />
+        <img
+          onClick={handleNav}
+          src={menu}
+          className="w-8 h-8 mr-10 medium:w-10 medium:h-10 large:hidden block"
+          alt=""
+        />
       </div>
       <div
         className={
@@ -88,6 +136,7 @@ const Navbar = () => {
             <a className="no-underline p-2 text-white text-2xl">Close</a>
           </li>
         </ul>
+
         <div
           className={
             nav
