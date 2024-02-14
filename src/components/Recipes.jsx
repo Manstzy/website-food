@@ -13,7 +13,10 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Recipes = () => {
   return (
-    <div id="recipes" className="py-12 desktop:px-14">
+    <div
+      id="recipes"
+      className="py-12 desktop:px-14 desktop:mt-5 laptop:mt-12 large:mt-20"
+    >
       <h1 className="font-inter text-center">
         More Than{" "}
         <a href="#" className="text-[#E94339] no-underline font-inter">
