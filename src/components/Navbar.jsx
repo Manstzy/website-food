@@ -1,6 +1,7 @@
 import pizza from "../assets/pizza.svg";
 import menu from "../assets/menu.svg";
 import { useState } from "react";
+import { Link } from "react-scroll";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [bgNav, setBgNav] = useState(false);
@@ -20,19 +21,24 @@ const Navbar = () => {
     <div
       className={
         bgNav
-          ? "w-full bg-[#E94339] top-0 desktop:h-12  left-0 transition-all  fixed h-10 flex justify-between py-2 px-5 items-center"
-          : "w-full fixed h-10 flex top-0 desktop:h-12  desktop:items-center left-0 transition-all  justify-between py-2 px-5 items-center"
+          ? "w-full bg-[#E94339] top-0 desktop:h-12 z-10   left-0 transition-all  fixed h-10 flex justify-between py-2 px-5 items-center"
+          : "w-full fixed h-10 flex top-0 desktop:h-12 z-10  desktop:items-center left-0 transition-all  justify-between py-2 px-5 items-center"
       }
     >
       <img
+        data-aos="fade-right"
         src={pizza}
         className="w-8 h-8 medium:w-10 medium:h-10 desktop:ml-10 "
         alt=""
       />
-      <ul className="large:flex items-center list-none gap-6 hidden ">
-        <li className="font-inter ">
-          <a
-            href="#restaurant"
+      <ul
+        data-aos="fade-down"
+        className="large:flex items-center list-none gap-6 hidden "
+      >
+        <li className="font-inter cursor-pointer">
+          <Link
+            to="restaurant"
+            smooth={true}
             className={
               bgNav
                 ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
@@ -40,11 +46,12 @@ const Navbar = () => {
             }
           >
             Restaurant
-          </a>
+          </Link>
         </li>
-        <li className="font-inter ">
-          <a
-            href="#recipes"
+        <li className="font-inter cursor-pointer ">
+          <Link
+            to="recipes"
+            smooth={true}
             className={
               bgNav
                 ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
@@ -52,11 +59,11 @@ const Navbar = () => {
             }
           >
             Recipes
-          </a>
+          </Link>
         </li>
-        <li className="font-inter ">
-          <a
-            href="#about"
+        <li className="font-inter cursor-pointer ">
+          <Link
+            to="about"
             className={
               bgNav
                 ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
@@ -64,11 +71,11 @@ const Navbar = () => {
             }
           >
             About
-          </a>
+          </Link>
         </li>
       </ul>
 
-      <div className="flex items-center desktop:mr-10 ">
+      <div data-aos="fade-left" className="flex items-center desktop:mr-10 ">
         <button
           className={
             bgNav
@@ -102,32 +109,35 @@ const Navbar = () => {
         }
       >
         <ul className="list-none border-b-none text-white">
-          <li
-            onClick={handleNav}
-            className="p-4 flex items-center cursor-pointer"
-          >
-            <a
-              href="#restaurant"
+          <li className="p-4 flex items-center cursor-pointer">
+            <Link
+              onClick={handleNav}
+              smooth={true}
+              to="restaurant"
               className="no-underline p-2 text-white text-2xl"
             >
               Restaurant
-            </a>
+            </Link>
           </li>
-          <li
-            onClick={handleNav}
-            className="p-4 flex items-center cursor-pointer"
-          >
-            <a href="#recipes" className="no-underline p-2 text-white text-2xl">
+          <li className="p-4 flex items-center cursor-pointer">
+            <Link
+              onClick={handleNav}
+              smooth={true}
+              to="recipes"
+              className="no-underline p-2 text-white text-2xl"
+            >
               Recipes
-            </a>
+            </Link>
           </li>
-          <li
-            onClick={handleNav}
-            className="p-4 flex items-center cursor-pointer"
-          >
-            <a href="#about" className="no-underline p-2 text-white text-2xl">
+          <li className="p-4 flex items-center cursor-pointer">
+            <Link
+              onClick={handleNav}
+              smooth={true}
+              to="about"
+              className="no-underline p-2 text-white text-2xl"
+            >
               About
-            </a>
+            </Link>
           </li>
           <li
             onClick={handleNav}

@@ -63,7 +63,7 @@ const Recipes = () => {
       </div>
 
       <div className="grid mt-5 grid-cols-3 px-5 gap-5 laptop:grid-cols-5">
-        <div className="laptop:col-span-2">
+        <div className="laptop:col-span-2 hidden laptop:block">
           <svg
             width="30"
             height="30"
