@@ -64,6 +64,7 @@ const Navbar = () => {
         <li className="font-inter cursor-pointer ">
           <Link
             to="about"
+            smooth={true}
             className={
               bgNav
                 ? "no-underline hover:bg-[#E94339] text-white hover:text-white duration-200 transition-all px-4 py-2 rounded-full"
