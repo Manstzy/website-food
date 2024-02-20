@@ -1,7 +1,8 @@
 import pizza from "../assets/pizza.svg";
 import menu from "../assets/menu.svg";
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [bgNav, setBgNav] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
         className="large:flex items-center list-none gap-6 hidden "
       >
         <li className="font-inter cursor-pointer">
-          <Link
+          <ScrollLink
             to="restaurant"
             smooth={true}
             className={
@@ -46,10 +47,10 @@ const Navbar = () => {
             }
           >
             Restaurant
-          </Link>
+          </ScrollLink>
         </li>
         <li className="font-inter cursor-pointer ">
-          <Link
+          <ScrollLink
             to="recipes"
             smooth={true}
             className={
@@ -59,10 +60,10 @@ const Navbar = () => {
             }
           >
             Recipes
-          </Link>
+          </ScrollLink>
         </li>
         <li className="font-inter cursor-pointer ">
-          <Link
+          <ScrollLink
             to="about"
             smooth={true}
             className={
@@ -72,29 +73,31 @@ const Navbar = () => {
             }
           >
             About
-          </Link>
+          </ScrollLink>
         </li>
       </ul>
 
       <div data-aos="fade-left" className="flex items-center desktop:mr-10 ">
-        <button
+        <RouterLink
+          to={"/website-food/login"}
           className={
             bgNav
-              ? "px-2 py-2 font-inter medium:p-3 border-none transition-all cursor-pointer duration-200 text-white bg-[#E94339]"
-              : "px-2 py-2 font-inter medium:p-3 border-none transition-all cursor-pointer duration-200 bg-white"
+              ? "px-2 py-2 font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 text-white bg-[#E94339]"
+              : "px-2 py-2 font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 bg-white"
           }
         >
           Login
-        </button>
-        <button
+        </RouterLink>
+        <RouterLink
+          to={"/website-food/signup"}
           className={
             bgNav
-              ? "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer border-none font-inter text-black bg-white transition-all duration-200"
-              : "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer border-none font-inter text-white transition-all duration-200 bg-[#E94339]"
+              ? "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer no-underline border-none font-inter text-black bg-white transition-all duration-200"
+              : "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer no-underline border-none font-inter text-white transition-all duration-200 bg-[#E94339]"
           }
         >
           Sign Up
-        </button>
+        </RouterLink>
         <img
           onClick={handleNav}
           src={menu}
@@ -111,34 +114,34 @@ const Navbar = () => {
       >
         <ul className="list-none border-b-none text-white">
           <li className="p-4 flex items-center cursor-pointer">
-            <Link
+            <ScrollLink
               onClick={handleNav}
               smooth={true}
               to="restaurant"
               className="no-underline p-2 text-white text-2xl"
             >
               Restaurant
-            </Link>
+            </ScrollLink>
           </li>
           <li className="p-4 flex items-center cursor-pointer">
-            <Link
+            <ScrollLink
               onClick={handleNav}
               smooth={true}
               to="recipes"
               className="no-underline p-2 text-white text-2xl"
             >
               Recipes
-            </Link>
+            </ScrollLink>
           </li>
           <li className="p-4 flex items-center cursor-pointer">
-            <Link
+            <ScrollLink
               onClick={handleNav}
               smooth={true}
               to="about"
               className="no-underline p-2 text-white text-2xl"
             >
               About
-            </Link>
+            </ScrollLink>
           </li>
           <li
             onClick={handleNav}

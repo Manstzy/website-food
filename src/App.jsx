@@ -1,21 +1,26 @@
 import { useEffect } from "react";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
-import Recipes from "./components/Recipes";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import { ContextProvider } from "./context/AuthContext";
+
 const App = () => {
   useEffect(() => {
-   AOS.init() 
-  })
+    AOS.init();
+  });
   return (
-    <>
-      <Navbar />
-      <Main />
-      <Recipes />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <ContextProvider>
+        <Routes>
+          <Route path="/website-food" element={<Home />} />
+          <Route path="/website-food/login" element={<Login />} />
+          <Route path="/website-food/signup" element={<SignUp />} />
+        </Routes>
+      </ContextProvider>
+    </BrowserRouter>
   );
 };
 
