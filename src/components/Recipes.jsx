@@ -10,8 +10,37 @@ import chose from "../assets/chose.svg";
 import locations from "../assets/location.svg";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import { useState } from "react";
+
+const sliderQuotes = [
+  {
+    id: 1,
+    word: '" Ia m impressed with the quality of food and the attentiveness of the staff. Highly recommended!" ',
+    name: "Gobles",
+    status: "Founder, Tomketlovers",
+  },
+  {
+    id: 2,
+    word: '" Great food, friendly staff, and a wonderful atmosphere. Perfect dining experience! "',
+    name: "Mitchell Mars",
+    status: "Ceo, Bexon Agency",
+  },
+];
 
 const Recipes = () => {
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+
+  const nextQuote = () => {
+    setCurrentQuoteIndex((index) => 
+    index === sliderQuotes.length - 1 ? 0 : index + 1
+    )
+  };
+
+  const prevQuote = () => {
+    setCurrentQuoteIndex((prevIndex) =>
+      prevIndex === 0 ? sliderQuotes.length - 1 : prevIndex - 1
+    );
+  };
   return (
     <div
       id="recipes"
@@ -158,6 +187,7 @@ const Recipes = () => {
         The food at your doorstep. Why starve when u have us. You hunger partner{" "}
         .Straight out of the oven to your doorstep
       </p>
+
       <div className="mx-auto text-center ">
         <svg
           className="w-8 h-8"
@@ -172,16 +202,25 @@ const Recipes = () => {
             fill="#FF5331"
           />
         </svg>
+
         <p className="italic font-semibold laptop:max-w-[400px] laptop:text-center mx-auto">
-          {'"'} Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-          perferendis autem animi consequuntur ullam aliquam itaque.{'"'}
+          {sliderQuotes[currentQuoteIndex].word}
         </p>
-        <p className="font-semibold font-inter">Mitchell Marsh</p>
+        <p className="font-semibold font-inter">
+          {" "}
+          {sliderQuotes[currentQuoteIndex].name}
+        </p>
         <p className="text-gray-700 font-serif -mt-4 text-[10px]">
-          CEO, Bexon Agency
+          {" "}
+          {sliderQuotes[currentQuoteIndex].status}
         </p>
-        <FaArrowAltCircleLeft size={28} className="mr-2 hover:text-[#E94339]" />
+        <FaArrowAltCircleLeft
+          onClick={prevQuote}
+          size={28}
+          className="mr-2 cursor-pointer hover:text-[#E94339]"
+        />
         <FaArrowAltCircleRight
+          onClick={nextQuote}
           size={28}
           className="hover:text-[#E94339] cursor-pointer"
         />

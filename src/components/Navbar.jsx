@@ -6,6 +6,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [bgNav, setBgNav] = useState(false);
@@ -41,12 +42,15 @@ const Navbar = () => {
           : "w-full fixed h-10 flex top-0 desktop:h-12 z-10  desktop:items-center left-0 transition-all  justify-between py-2 px-5 items-center"
       }
     >
-      <img
-        data-aos="fade-right"
-        src={pizza}
-        className="w-8 h-8 medium:w-10 medium:h-10 desktop:ml-10 "
-        alt=""
-      />
+      <ScrollLink className="cursor-pointer" smooth={true} to="restaurant">
+        <img
+          data-aos="fade-right"
+          src={pizza}
+          className="w-8 h-8 medium:w-10 medium:h-10 desktop:ml-10 "
+          alt=""
+        />
+      </ScrollLink>
+
       <ul
         data-aos="fade-down"
         className="large:flex items-center list-none gap-6 hidden "
@@ -91,7 +95,7 @@ const Navbar = () => {
           </ScrollLink>
         </li>
       </ul>
-      
+
       {user?.email ? (
         <RouterLink
           onClick={handleLogOut}

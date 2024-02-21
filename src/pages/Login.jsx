@@ -2,12 +2,13 @@ import pizza from "../assets/pizza.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { useState } from "react";
+import google from "../assets/google.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { user, logIn } = UserAuth();
+  const { user, logIn, googleSignIn } = UserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,6 +22,15 @@ const Login = () => {
       setError(error.message);
     }
   };
+  const handleGoodleSignIn = async (e) => {
+    e.preventDefault()
+    try{
+      await googleSignIn()
+      navigate("/website-food/")
+    } catch(error) {
+      console.log(error.message)
+    }
+  }
   return (
     <div className="absolute top-0 left-0 right-0 bottom-0 p-2 flex items-center">
       <div className="bg-[#E94339] mx-auto rounded-md p-4 w-full h-[400px] max-w-[400px] flex flex-col items-center">
@@ -61,9 +71,14 @@ const Login = () => {
             className="px-4 py-2 w-52 phone:w-60 medium:w-72 rounded-lg border-none outline-none text-gray-500"
             placeholder="Input your password"
           />
-          <button className="mt-5 bg-[#FFEFEC] hover:bg-[#c5bcbadd] transition-all duration-300 text-black  w-40 rounded-lg border-none cursor-pointer py-2 mx-auto">
+          <button className="mt-5 bg-[#FFEFEC] hover:bg-[#c5bcbadd] transition-all duration-300 text-black  w-52 rounded-full border-none cursor-pointer py-2 mx-auto">
             Login
           </button>
+          <button onClick={handleGoodleSignIn} className="w-52 cursor-pointer h-8 flex items-center justify-center gap-3 bg-[#FFEFEC] hover:bg-[#c5bcbadd] border-none rounded-full mx-auto">
+            <img src={google} className="w-4 h-4" alt="" />
+            <p className="font-poppins">Login dengan google</p>
+          </button>
+
           <p className="text-center text-sm">
             Belum memiliki akun ?{" "}
             <Link
@@ -74,7 +89,7 @@ const Login = () => {
             </Link>
           </p>
         </form>
-        <p className="text-sm text-white mt-16">
+        <p className="text-sm text-white mt-10">
           &copy; Jika kamu lapar makanlah
         </p>
       </div>

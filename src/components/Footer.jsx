@@ -2,6 +2,8 @@ import pizza from "../assets/pizza.svg";
 import playStore from "../assets/play store.svg";
 import apple from "../assets/apple.svg";
 import List from "./List";
+
+
 const Footer = () => {
   return (
     <div id="about" className="absolute right-0 left-0">
