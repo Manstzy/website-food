@@ -3,9 +3,24 @@ import menu from "../assets/menu.svg";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [bgNav, setBgNav] = useState(false);
+
+  const { user, logOut } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate("/website-food/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleBgNav = () => {
     if (scrollY >= 5) {
       setBgNav(true);
@@ -76,35 +91,50 @@ const Navbar = () => {
           </ScrollLink>
         </li>
       </ul>
+      
+      {user?.email ? (
+        <RouterLink
+          onClick={handleLogOut}
+          to={"/website-food/"}
+          className={
+            bgNav
+              ? "mr-10 py-2 px- rounded-full font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-2 rounded-full00 text-black bg-white"
+              : "mr-10 py-2 px- rounded-full font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 text-white bg-[#E94339]"
+          }
+        >
+          logout
+        </RouterLink>
+      ) : (
+        <div data-aos="fade-left" className="flex items-center desktop:mr-10 ">
+          <RouterLink
+            to={"/website-food/login"}
+            className={
+              bgNav
+                ? "px-2 py-2 font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 text-white bg-[#E94339]"
+                : "px-2 py-2 font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 bg-white"
+            }
+          >
+            Login
+          </RouterLink>
+          <RouterLink
+            to={"/website-food/signup"}
+            className={
+              bgNav
+                ? "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer no-underline border-none font-inter text-black bg-white transition-all duration-200"
+                : "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer no-underline border-none font-inter text-white transition-all duration-200 bg-[#E94339]"
+            }
+          >
+            Sign Up
+          </RouterLink>
+          <img
+            onClick={handleNav}
+            src={menu}
+            className="w-8 h-8 mr-10 medium:w-10 medium:h-10 large:hidden block"
+            alt=""
+          />
+        </div>
+      )}
 
-      <div data-aos="fade-left" className="flex items-center desktop:mr-10 ">
-        <RouterLink
-          to={"/website-food/login"}
-          className={
-            bgNav
-              ? "px-2 py-2 font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 text-white bg-[#E94339]"
-              : "px-2 py-2 font-inter no-underline medium:p-3 border-none transition-all cursor-pointer duration-200 bg-white"
-          }
-        >
-          Login
-        </RouterLink>
-        <RouterLink
-          to={"/website-food/signup"}
-          className={
-            bgNav
-              ? "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer no-underline border-none font-inter text-black bg-white transition-all duration-200"
-              : "px-4 py-2 mr-2 medium:px-3 large:mr-12 medium:mr-4 rounded-full cursor-pointer no-underline border-none font-inter text-white transition-all duration-200 bg-[#E94339]"
-          }
-        >
-          Sign Up
-        </RouterLink>
-        <img
-          onClick={handleNav}
-          src={menu}
-          className="w-8 h-8 mr-10 medium:w-10 medium:h-10 large:hidden block"
-          alt=""
-        />
-      </div>
       <div
         className={
           nav

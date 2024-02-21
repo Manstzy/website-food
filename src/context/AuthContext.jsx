@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -15,6 +16,10 @@ export function ContextProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  function logOut() {
+    return signOut(auth);
+  }
+
   function signUp(email, password) {
     createUserWithEmailAndPassword(auth, email, password);
   }
@@ -24,12 +29,12 @@ export function ContextProvider({ children }) {
       setUser(currentUser);
     });
     return () => {
-      unsubscribe()
+      unsubscribe();
     };
   });
 
   return (
-    <AuthContext.Provider value={{ user, logIn, signUp }}>
+    <AuthContext.Provider value={{ user, logIn, signUp , logOut }}>
       {children}
     </AuthContext.Provider>
   );
